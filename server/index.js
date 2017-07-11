@@ -5,6 +5,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const fetch = require('node-fetch');
 
 mongoose.Promise = global.Promise;
 
@@ -15,12 +16,24 @@ app.use(bodyParser.json());
 
 // API endpoints go here!
 
-//Show all restaurants in database at a time
-const restaurants = ['Firehouse Subs', 'Blue Moon Pizza', 'Red Lobster'];
-let rand = restaurants[Math.floor(Math.random() * restaurants.length)];
-
+//Get restaurnts from yelp API
+// const restaurants = ['Firehouse Subs', 'Blue Moon Pizza', 'Red Lobster'];
+// let rand = restaurants[Math.floor(Math.random() * restaurants.length)];
 app.get('/api/restaurants', (req, res) => {
-  return res.json(restaurants);
+  fetch(`https://api.yelp.com/v3/businesses/search?location=${req.query.location}`, {
+    method: 'GET',
+    headers:({
+      'Authorization': 'Bearer KtlW_oSlueZ8eVkcl39DhwzQPmjKyIGvpJxTCjo9efXzEhLzBuwaTxCZ1gWjV8u5PTo0focL8Y-EzPcVIBfkhxNlUlPT8YFpJAgbRGTfpD89Die9frHRiApgsctjWXYx'
+    })
+  }).then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  }).then(restaurants => {
+    //console.log(restaurants);
+    return res.json(restaurants);
+  });
 });
 
 //show all users in database

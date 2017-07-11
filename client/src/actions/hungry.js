@@ -21,16 +21,14 @@ export const fetchRestaurantRequest = restaurant => ({
 
 export const fetchRestaurant = (city) => dispatch => {
     dispatch(fetchRestaurantRequest());
-    fetch(`/api/restaurants?location=${city}`).then (res => {
-
+    fetch(`/api/restaurants?term=restaurants&location=${city}`).then (res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
-        return res.json();
-    }).then(cheese => {
-        dispatch(fetchRestaurantSuccess(cheese));
+            return res.json();
+    }).then(restaurant => {
+        dispatch(fetchRestaurantSuccess(restaurant));
     }).catch(err => {
         dispatch(fetchRestaurantError(err));
     });
 };
-

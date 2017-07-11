@@ -12,12 +12,12 @@ export class HungryList extends React.Component {
     event.preventDefault();
     const value = this.input.value;
     console.log(value);
-    this.props.dispatch(fetchRestaurantSuccess(value));
+    this.props.dispatch(fetchRestaurant(value));
     this.value="";
   }
 
   render() {
-  console.log(this.props.restaurants);
+  console.log("Restaurant PROPS",this.props.restaurants);
     if(this.props.error) {
       return <div>{this.props.error}</div>;
     }
@@ -28,7 +28,7 @@ export class HungryList extends React.Component {
      //console.log(restaurant);
       return (
          <li key={index}>
-           {restaurant}
+           {restaurant.name}
         </li>
        
   )});

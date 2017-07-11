@@ -8,8 +8,16 @@ export class HungryList extends React.Component {
     this.props.dispatch(fetchRestaurant());
   }
 
-  render() {
+  submitQuery(event){
+    event.preventDefault();
+    const value = this.input.value;
+    console.log(value);
+    this.props.dispatch(fetchRestaurantSuccess(value));
+    this.value="";
+  }
 
+  render() {
+  console.log(this.props.restaurants);
     if(this.props.error) {
       return <div>{this.props.error}</div>;
     }
@@ -17,8 +25,7 @@ export class HungryList extends React.Component {
       return <div>Loading...</div>
     }
     const restaurants = this.props.restaurants.map((restaurant, index) => {
-      //console.log(index);
-     console.log(restaurant);
+     //console.log(restaurant);
       return (
          <li key={index}>
            {restaurant}
@@ -28,9 +35,13 @@ export class HungryList extends React.Component {
 
   return (
     <div>
-    <button onClick={() => this.props.dispatch(fetchRestaurantSuccess({name: 'A great restaurant'}))}>Search by City</button>
-     <button onClick={() => this.props.dispatch(fetchRestaurantSuccess({name: 'A great restaurant'}))}>Search by ZipCode</button>
-      <button onClick={() => this.props.dispatch(fetchRestaurantSuccess({name: 'A great restaurant'}))}>Search by Cuisine</button>
+      <form onSubmit={(e)=>this.submitQuery(e)}>
+      <input type="text" name="city" className="City" placeholder="city" ref={input => this.input = input}/>
+
+      <button type="submit">Search by City</button>
+      </form>
+     {/*<button onClick={() => this.props.dispatch(fetchRestaurantSuccess({name: 'A great restaurant'}))}>Search by ZipCode</button>
+      <button onClick={() => this.props.dispatch(fetchRestaurantSuccess({name: 'A great restaurant'}))}>Search by Cuisine</button>*/}
     <ul>
       {restaurants}
     </ul>
@@ -43,5 +54,13 @@ export class HungryList extends React.Component {
 const mapStateToProps = (state) => ({
   restaurants: state.restaurants
 });
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         onClick: (evt) => {
+//             dispatch((evt.target.querySelector('input').value)
+//         }
+//     }
+// }
 
 export default connect(mapStateToProps)(HungryList);

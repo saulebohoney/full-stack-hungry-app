@@ -32,3 +32,4 @@ export const fetchRestaurant = () => dispatch => {
         dispatch(fetchRestaurantError(err));
     });
 };
+

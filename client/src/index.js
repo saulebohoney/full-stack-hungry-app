@@ -7,7 +7,7 @@ import store from './store';
 
 ReactDOM.render(
   <Provider store={store}>
-  <HungryList />
+   <HungryList />
   </Provider>,
   document.getElementById('root')
 );

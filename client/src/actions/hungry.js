@@ -21,7 +21,7 @@ export const fetchRestaurantRequest = restaurant => ({
 
 export const fetchRestaurant = (city) => dispatch => {
     dispatch(fetchRestaurantRequest());
-    fetch(`/api/restaurants?term=restaurants&location=${city}`).then (res => {
+    fetch(`/api/restaurants?categories=restaurants&location=${city}`).then (res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }

@@ -19,8 +19,9 @@ app.use(bodyParser.json());
 //Get restaurnts from yelp API
 // const restaurants = ['Firehouse Subs', 'Blue Moon Pizza', 'Red Lobster'];
 // let rand = restaurants[Math.floor(Math.random() * restaurants.length)];
+
 app.get('/api/restaurants', (req, res) => {
-  fetch(`https://api.yelp.com/v3/businesses/search?location=${req.query.location}`, {
+  fetch(`https://api.yelp.com/v3/businesses/search?term=restaurants&location=${req.query.location}`, {
     method: 'GET',
     headers:({
       'Authorization': 'Bearer KtlW_oSlueZ8eVkcl39DhwzQPmjKyIGvpJxTCjo9efXzEhLzBuwaTxCZ1gWjV8u5PTo0focL8Y-EzPcVIBfkhxNlUlPT8YFpJAgbRGTfpD89Die9frHRiApgsctjWXYx'
@@ -31,7 +32,6 @@ app.get('/api/restaurants', (req, res) => {
     }
     return res.json();
   }).then(yelpRes => {
-    //console.log(restaurants);
     return res.json(yelpRes.businesses);
   });
 });

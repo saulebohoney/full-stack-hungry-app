@@ -4,9 +4,9 @@ import {fetchRestaurant} from '../actions/hungry';
 import{fetchRestaurantSuccess} from '../actions/hungry';
 
 export class HungryList extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchRestaurant());
-  }
+  // componentDidMount() {
+  //   this.props.dispatch(fetchRestaurant());
+  // }
 
   submitQuery(event){
     event.preventDefault();
@@ -17,7 +17,7 @@ export class HungryList extends React.Component {
   }
 
   render() {
-  console.log("Restaurant PROPS",this.props.restaurants);
+  //console.log("Restaurant PROPS",this.props.restaurants);
     if(this.props.error) {
       return <div>{this.props.error}</div>;
     }
@@ -30,7 +30,7 @@ export class HungryList extends React.Component {
          <li key={index}>
            {restaurant.name}
         </li>
-       
+
   )});
 
   return (
@@ -46,7 +46,7 @@ export class HungryList extends React.Component {
       {restaurants}
     </ul>
     </div>
-    )  
+    )
 
 }
 

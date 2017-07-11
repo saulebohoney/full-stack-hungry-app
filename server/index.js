@@ -21,7 +21,8 @@ app.use(bodyParser.json());
 // let rand = restaurants[Math.floor(Math.random() * restaurants.length)];
 
 app.get('/api/restaurants', (req, res) => {
-  fetch(`https://api.yelp.com/v3/businesses/search?term=restaurants&location=${req.query.location}`, {
+  console.log(req.query);
+  fetch(`https://api.yelp.com/v3/businesses/search?categories=restaurants&term=${req.query.term}&location=${req.query.location}`, {
     method: 'GET',
     headers:({
       'Authorization': 'Bearer KtlW_oSlueZ8eVkcl39DhwzQPmjKyIGvpJxTCjo9efXzEhLzBuwaTxCZ1gWjV8u5PTo0focL8Y-EzPcVIBfkhxNlUlPT8YFpJAgbRGTfpD89Die9frHRiApgsctjWXYx'
@@ -32,7 +33,9 @@ app.get('/api/restaurants', (req, res) => {
     }
     return res.json();
   }).then(yelpRes => {
-    return res.json(yelpRes.businesses);
+    let restaurantList = yelpRes.businesses;
+    let rand = Math.floor(Math.random() * restaurantList.length);
+    return res.json([restaurantList[rand]]);
   });
 });
 

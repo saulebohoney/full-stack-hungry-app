@@ -13,6 +13,14 @@ app.use(bodyParser.json());
 
 // API endpoints go here!
 
+//Show all restaurants in database at a time
+const restaurants = ['Firehouse Subs', 'Blue Moon Pizza', 'Red Lobster'];
+let rand = restaurants[Math.floor(Math.random() * restaurants.length)];
+
+app.get('/api/restaurants', (req, res) => {
+  return res.json(restaurants);
+});
+
 //show all users in database
 app.get('/api/users', (req, res) => {
   User

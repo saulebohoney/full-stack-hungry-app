@@ -4,9 +4,9 @@ import {fetchRestaurant} from '../actions/hungry';
 import{fetchRestaurantSuccess} from '../actions/hungry';
 
 export class HungryList extends React.Component {
-  // componentDidMount() {
-  //   this.props.dispatch(fetchRestaurant());
-  //}
+  componentDidMount() {
+    this.props.dispatch(fetchRestaurant());
+  }
 
   render() {
 
@@ -18,13 +18,11 @@ export class HungryList extends React.Component {
     }
     const restaurants = this.props.restaurants.map((restaurant, index) => {
       //console.log(index);
-     // console.log(restaurant);
+     console.log(restaurant);
       return (
-     <div>
          <li key={index}>
-           {restaurants}
+           {restaurant}
         </li>
-     </div>
        
   )});
 

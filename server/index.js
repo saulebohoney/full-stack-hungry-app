@@ -30,9 +30,9 @@ app.get('/api/restaurants', (req, res) => {
       return Promise.reject(res.statusText);
     }
     return res.json();
-  }).then(restaurants => {
+  }).then(yelpRes => {
     //console.log(restaurants);
-    return res.json(restaurants);
+    return res.json(yelpRes.businesses);
   });
 });
 

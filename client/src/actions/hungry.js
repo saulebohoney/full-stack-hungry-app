@@ -1,4 +1,9 @@
 // Action here
+export const UPDATE_USER='UPDATE_USER';
+export const updateUser=never=>({
+    type:UPDATE_USER,
+    never
+});
 
 export const FETCH_RESTAURANT_SUCCESS = 'FETCH_RESTAURANT_SUCCESS';
 export const fetchRestaurantSuccess = restaurant => ({

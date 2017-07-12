@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {updateUser} from '../actions/hungry';
 
-export class neverList extends React.Component {
+export class NeverList extends React.Component {
     render() {
 
   return (
@@ -20,5 +20,5 @@ export const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps)(neverList);
+export default connect(mapStateToProps)(NeverList);
 

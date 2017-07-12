@@ -5,6 +5,36 @@ export const updateUser=never=>({
     never
 });
 
+export const UPDATE_USER_SUCCESS='UPDATE_USER_SUCCESS';
+export const updateUserSuccess=resId =>({
+    type:UPDATE_USER_SUCCESS,
+    resId
+});
+
+
+export const UPDATE_USER_ERROR='UPDATE_USER_ERROR';
+export const updateUserError=resId =>({
+    type:UPDATE_USER_ERROR,
+    resId
+});
+
+
+export const updateUserNevers=() =>dispatch => {
+    dispatch(updateUser());
+    fetch('/api/users/5964f0a7188cee107ddddeea',
+    { method: 'PUT'}).then(res=>{
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    }).then(user => {
+        dispatch(updateUserSuccess(user.restaurants.id));
+    }).catch(err => {
+        dispatch(updateUserError(err));
+    });
+};
+
+
 export const FETCH_RESTAURANT_SUCCESS = 'FETCH_RESTAURANT_SUCCESS';
 export const fetchRestaurantSuccess = restaurant => ({
     type: FETCH_RESTAURANT_SUCCESS,
@@ -30,10 +60,11 @@ export const fetchRestaurant = (city) => dispatch => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
-            return res.json();
+        return res.json();
     }).then(restaurant => {
         dispatch(fetchRestaurantSuccess(restaurant));
     }).catch(err => {
         dispatch(fetchRestaurantError(err));
     });
+  
 };

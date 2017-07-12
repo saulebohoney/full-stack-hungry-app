@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchRestaurant} from '../actions/hungry';
 import{fetchRestaurantSuccess} from '../actions/hungry';
-import neverList from './never-list';
+import NeverList from './never-list';
 
 export class HungryList extends React.Component {
   // componentDidMount() {
@@ -48,7 +48,7 @@ export class HungryList extends React.Component {
     <ul>
       {restaurants}
     </ul>
-    <neverList/>
+    <NeverList/>
     </div>
     )
 

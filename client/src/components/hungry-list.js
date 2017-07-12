@@ -28,9 +28,11 @@ export class HungryList extends React.Component {
      //console.log(restaurant);
       return (
          <li key={index}>
-           {restaurant.name}
+            Restaurant: {restaurant.name}<br/>
+            Type: {restaurant.categories[0].title}<br/>
+            Address: {restaurant.location.display_address}<br/>
+            Contact: {restaurant.display_phone}
         </li>
-
   )});
 
   return (

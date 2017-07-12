@@ -4,5 +4,5 @@ require('dotenv').config();
 
 exports.DATABASE_URL = process.env.DATABASE_URL ||
                        global.DATABASE_URL ||
-                      'mongodb://localhost/hungryAPP';
+                      'mongodb://pj:pass@ds153732.mlab.com:53732/hungerover';
 exports.PORT = process.env.PORT || 3001;

@@ -78,25 +78,40 @@ app.post('/api/users', (req, res) => {
 });
 
 //update user information
-app.put('/api/users/:id', (req, res) => {
-  //check if valid id
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
-    const message = (
-      `Request path id (${req.params.id}) and request body id ` +
-      `(${req.body.id}) must match`);
-    console.error(message);
-    res.status(400).json({message: message});
-  }
-  //which filed(s) can be updated
-  const toUpdate = {};
-  const updateableField = ['nevers'];
-  updateableField.forEach(field => {
-    if (field in req.body) {
-      toUpdate[field] = req.body[field];
-    }
-  });
+// app.put('/api/users/:id', (req, res) => {
+//   //check if valid id
+//   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
+//     const message = (
+//       `Request path id (${req.params.id}) and request body id ` +
+//       `(${req.body.id}) must match`);
+//     console.error(message);
+//     res.status(400).json({message: message});
+//   }
+//   //which filed(s) can be updated
+//   const toUpdate = {};
+//   const updateableField = ['nevers'];
+//   updateableField.forEach(field => {
+//     if (field in req.body) {
+//       toUpdate[field] = req.body[field];
+//     }
+//   });
+//   User
+//     .findByIdAndUpdate(req.params.id, {$set: toUpdate})
+//     .exec()
+//     .then(user => {
+//       res.status(204).end();
+//     })
+//     .catch(err => {
+//       console.error(err);
+//       res.status(500).json({message: 'Internal server error'});
+//     });
+//
+// });
+
+app.post('/api/users/:id/nevers', (req, res) => {
+  console.log(req.body.nevers);
   User
-    .findByIdAndUpdate(req.params.id, {$set: toUpdate})
+    .findByIdAndUpdate(req.params.id, {$push: {['nevers']:req.body.nevers}})
     .exec()
     .then(user => {
       res.status(204).end();
@@ -105,7 +120,6 @@ app.put('/api/users/:id', (req, res) => {
       console.error(err);
       res.status(500).json({message: 'Internal server error'});
     });
-
 });
 
 // Serve the built client

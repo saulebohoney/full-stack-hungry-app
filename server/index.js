@@ -17,9 +17,6 @@ app.use(bodyParser.json());
 // API endpoints go here!
 
 //Get restaurnts from yelp API
-// const restaurants = ['Firehouse Subs', 'Blue Moon Pizza', 'Red Lobster'];
-// let rand = restaurants[Math.floor(Math.random() * restaurants.length)];
-
 app.get('/api/restaurants', (req, res) => {
   console.log(req.query);
   fetch(`https://api.yelp.com/v3/businesses/search?categories=restaurants&term=${req.query.term}&location=${req.query.location}`, {

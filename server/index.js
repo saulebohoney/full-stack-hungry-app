@@ -31,6 +31,9 @@ app.get('/api/restaurants', (req, res) => {
     return res.json();
   }).then(yelpRes => {
     let restaurantList = yelpRes.businesses;
+    //map through id in list X
+    restaurantList.map(approved => {
+    });
     let rand = Math.floor(Math.random() * restaurantList.length);
     return res.json([restaurantList[rand]]);
   });
@@ -77,37 +80,7 @@ app.post('/api/users', (req, res) => {
     });
 });
 
-//update user information
-// app.put('/api/users/:id', (req, res) => {
-//   //check if valid id
-//   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
-//     const message = (
-//       `Request path id (${req.params.id}) and request body id ` +
-//       `(${req.body.id}) must match`);
-//     console.error(message);
-//     res.status(400).json({message: message});
-//   }
-//   //which filed(s) can be updated
-//   const toUpdate = {};
-//   const updateableField = ['nevers'];
-//   updateableField.forEach(field => {
-//     if (field in req.body) {
-//       toUpdate[field] = req.body[field];
-//     }
-//   });
-//   User
-//     .findByIdAndUpdate(req.params.id, {$set: toUpdate})
-//     .exec()
-//     .then(user => {
-//       res.status(204).end();
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       res.status(500).json({message: 'Internal server error'});
-//     });
-//
-// });
-
+//add restaurant id's of rejected restaurants to the never list
 app.post('/api/users/:id/nevers', (req, res) => {
   console.log(req.body.nevers);
   User

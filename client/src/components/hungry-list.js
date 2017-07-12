@@ -28,7 +28,7 @@ export class HungryList extends React.Component {
     const restaurants = this.props.restaurants.map((restaurant, index) => {
      //console.log(restaurant);
       return (
-         <li key={index}>
+         <li key={restaurant.id}>
             Restaurant: {restaurant.name}<br/>
             Type: {restaurant.categories[0].title}<br/>
             Address: {restaurant.location.display_address}<br/>
@@ -38,7 +38,7 @@ export class HungryList extends React.Component {
 
   return (
     <div className="root">
-      <h2 className="headertxt">I'm Hungry</h2>
+      <h2 className="headertxt">Im Hungry</h2>
       <form onSubmit={(e)=>this.submitQuery(e)}>
       <input type="text" name="city" className="City" placeholder="city" ref={input => this.input = input}/>
 
@@ -47,7 +47,7 @@ export class HungryList extends React.Component {
     <ul>
       {restaurants}
     </ul>
-    <NeverList/>
+    <NeverList restaruantProps = {this.props.restaurants}/>
     </div>
     )
 

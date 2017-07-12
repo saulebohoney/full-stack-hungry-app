@@ -27,5 +27,11 @@
     "npm-run-all": "^4.0.1",
     "xp": "^1.0.1",
     "yelp": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "chai-http": "^3.0.0",
+    "http": "0.0.0",
+    "mocha": "^3.4.2"
   }
 }

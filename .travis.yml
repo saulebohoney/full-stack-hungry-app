@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: bTpVA70ik6mONjHMEcYtX/5lyw0cllK2aaFcK4S5xbJeurhG6/KZgkSoSSkvZqtW9ZlkE1iX6Qxh6+9NFqC/Jl0m7SMP/Y8S1Xqz6SMR/EwyrOpNMlhEW2V86/Yn9uKwtoOo1NTuNy++mGfF5JloO4RH1lhZElxV4z7OT5GIcZUmaOcCjgBLNN5CzLfggZ99yjV8EPtyw7VsbaNKY2rTQdE0Jok7DFsbi5re8ygDt9/rGZz0QPZlteJ3PpvnOppNk1SBc56i0DVMvwwJ60+xclsWC3vkNlg9GvTrrbBXVFJRJtyXornZ6FNJQ7wwYuyW3geuaT+SVTQqX2Vfsz/ghOZAQGlsSOlOxC5Fm94/rrs0a00L4SiWl93Jkrm8xoA/xyOHoH033H9a/FXsv0/lioQ3wn/G/9FmRHPDw5Fj+J7Ur+XldSgVCpvarG30B1y2ZNuMBtb2zct1Dr2bsFdRqcHaxWrishxGfKMUkZS0gE94Drlv1KCKIKxFeyznS1501FRdBYqxSPXxHiHcIzKzuKhJTZKwoYtL0jz12FpeVxOgZnbEbriWuJg1mRmbrnlcGrJlYjFp0aRkYGVoSI4M/v7hSugWB8Zgc0ULGMGmlL3MUXe2GBdw9WZmAPkIUFwUwqE3M7nfgIB2k5wqef9Ic7ZD/XO2DfObJJ5DTZZ/XXg=
+  app: full-stack-hungry-app
+  on:
+    repo: saulebohoney/full-stack-hungry-app

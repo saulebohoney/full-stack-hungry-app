@@ -21,14 +21,17 @@ export const updateUserError=resId =>({
 
 export const updateUserNevers=() =>dispatch => {
     dispatch(updateUser());
-    fetch('/api/users/5964f0a7188cee107ddddeea',
-    { method: 'PUT'}).then(res=>{
+    fetch('/api/users/5964f0a7188cee107ddddeea'
+   ).then(res=>{
         if (!res.ok) {
-            return Promise.reject(res.statusText);
+           // return Promise.reject(res.statusText);
+           return res.json().then(Promise.reject);
         }
         return res.json();
     }).then(user => {
         dispatch(updateUserSuccess(user.restaurants.id));
+        console.log(user);
+        console.log(user.restaurants.id);
     }).catch(err => {
         dispatch(updateUserError(err));
     });

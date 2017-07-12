@@ -1,8 +1,48 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  padding: 20px;
+  font-family: fantasy;
+  background-color: gold;
+    border: 2px solid;
+    border-radius: 15px 550px;
+    margin-top: 20%;
+}
+.root {
+text-align: center;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
+#button1{
+  font-family: fantasy;
+  font-size: 1em;
 }
 
 
+#button2{
+  font-family: fantasy;
+  font-size: 1em;
+}
 
+.City{
+  font-family: fantasy;
+  font-size: 1em;
+}
+
+#search{
+  font-family: fantasy;
+  font-size: 1em;
+}
+
+
+#triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid red;
+	border-bottom: 50px solid transparent;
+}

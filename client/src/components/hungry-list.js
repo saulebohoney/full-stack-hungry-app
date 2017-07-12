@@ -37,14 +37,13 @@ export class HungryList extends React.Component {
   )});
 
   return (
-    <div>
+    <div className="root">
+      <h2 className="headertxt">I'm Hungry</h2>
       <form onSubmit={(e)=>this.submitQuery(e)}>
       <input type="text" name="city" className="City" placeholder="city" ref={input => this.input = input}/>
 
-      <button type="submit">Search by City</button>
+      <button type="submit" id="search">Search by City or ZipCode</button>
       </form>
-     {/*<button onClick={() => this.props.dispatch(fetchRestaurantSuccess({name: 'A great restaurant'}))}>Search by ZipCode</button>
-      <button onClick={() => this.props.dispatch(fetchRestaurantSuccess({name: 'A great restaurant'}))}>Search by Cuisine</button>*/}
     <ul>
       {restaurants}
     </ul>

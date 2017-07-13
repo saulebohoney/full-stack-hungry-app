@@ -10,17 +10,20 @@ export class NeverList extends React.Component {
         this.props.dispatch(updateUserNevers(id));
         console.log('The link was clicked.');
       }
-
-      handleYes(e){
+ 
+   
+        handleYes(e){
         e.preventDefault();
-       window.location.assign("https://www.google.com.au/maps")
-      }
-      
+        console.log("YES!");
+        console.log(this.props);
+        window.location.assign(`https://www.google.com/maps/search/${this.props.restaurantProps[0].location.display_address[0]+this.restaurantProps[0].location.display_address[1]}`);
+        }
+    
 render() {
 
   return (
       <div className="buttons">
-           <button type="button" id="button1" on Click= {(e)=>this.handleYes(e)}>Yes, take me there! </button>
+           <button type="button" id="button1" onClick={(e)=>this.handleYes(e)}>Yes, take me there! </button>
            <button type="button" id="button2" onClick={(e)=> this.handleClick(e)}>No</button>
 
       </div>

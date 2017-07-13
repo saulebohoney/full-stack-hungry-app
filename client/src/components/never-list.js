@@ -13,9 +13,9 @@ export class NeverList extends React.Component {
 
       handleYes(e){
         e.preventDefault();
-       
+       window.location.assign("https://www.google.com.au/maps")
       }
-
+      
 render() {
 
   return (

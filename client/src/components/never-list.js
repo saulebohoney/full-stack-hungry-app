@@ -20,7 +20,7 @@ render() {
 
   return (
       <div className="buttons">
-           <button type="button" id="button1" onClick= {(e)=>this.handleYes(e)}>Yes, take me there! </button>
+           <button type="button" id="button1" onClick={(e)=>this.handleYes(e)}>Yes, take me there! </button>
            <button type="button" id="button2" onClick={(e)=> this.handleClick(e)}>No</button>
 
       </div>

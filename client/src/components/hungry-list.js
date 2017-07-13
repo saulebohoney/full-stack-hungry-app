@@ -22,11 +22,11 @@ export class HungryList extends React.Component {
     }
     let buttons;
     if (this.props.restaurants.length > 0) {
-    buttons=<NeverList restaruantProps = {this.props.restaurants}/>;
+    buttons=<NeverList restaruantProps={this.props.restaurants}/>;
       // return buttons;
     }
     //  let buttons=<NeverList restaruantProps = {this.props.restaurants}/>;
-  
+
 
 
     const restaurants = this.props.restaurants.map((restaurant, index) => {

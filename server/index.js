@@ -32,8 +32,6 @@ app.get('/api/restaurants', (req, res) => {
   }).then(yelpRes => {
     let restaurantList = yelpRes.businesses;
     //map through id in list X
-    restaurantList.map(approved => {
-    });
     let rand = Math.floor(Math.random() * restaurantList.length);
     return res.json([restaurantList[rand]]);
   });

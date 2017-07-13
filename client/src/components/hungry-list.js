@@ -33,7 +33,11 @@ export class HungryList extends React.Component {
 
   return (
     <div className="root">
-      <h2 className="headertxt">Im Hungry</h2>
+      <h1 className="headertxt">I'm Hungry</h1>
+      <h2> Hungry but you don't know what you want to eat? Have no fear the I'm hungry app is here.
+      Just enter your city or zipcode and we will find a restaruant for you. If a restaurnt shows up that you don't like
+      simply hit the never button and it will never show up again. If you like it hit the yes button and you will be given directions.
+      </h2>
       <form onSubmit={(e)=>this.submitQuery(e)}>
       <input type="text" name="city" className="City" placeholder="city or zipcode" ref={input => this.input = input}/>
 

@@ -15,7 +15,6 @@ text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  display: none;
   
 }
 #button1{
@@ -27,7 +26,6 @@ text-align: center;
 #button2{
   font-family: fantasy;
   font-size: 1em;
-  display: none;
 }
 
 .City{

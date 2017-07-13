@@ -4,7 +4,7 @@ export const initialState = {
     restaurants: [],
     nevers:[],
     loading: false,
-    error: null
+    error: null,
 };
 
 export const reducer = (state=initialState, action) => {

@@ -25,6 +25,15 @@ export class HungryList extends React.Component {
     if(this.props.loading) {
       return <div>Loading...</div>
     }
+    let buttons;
+    if (this.props.restaurants.length > 0) {
+    buttons=<NeverList restaruantProps = {this.props.restaurants}/>;
+      // return buttons;
+    }
+    //  let buttons=<NeverList restaruantProps = {this.props.restaurants}/>;
+  
+
+
     const restaurants = this.props.restaurants.map((restaurant, index) => {
      //console.log(restaurant);
       return (
@@ -41,14 +50,13 @@ export class HungryList extends React.Component {
       <h2 className="headertxt">Im Hungry</h2>
       <form onSubmit={(e)=>this.submitQuery(e)}>
       <input type="text" name="city" className="City" placeholder="city" ref={input => this.input = input}/>
-
       <button type="submit" id="search">Search by City or ZipCode</button>
       </form>
     <ul>
       {restaurants}
+      {buttons}
     </ul>
-    <NeverList restaruantProps = {this.props.restaurants}/>
-    
+
     </div>
     )
 

@@ -15,7 +15,7 @@ render() {
 
   return (
       <div className="buttons">
-           <button className="display" type="button" id="button1">Yes</button>
+           <button type="button" id="button1">Yes</button>
            <button type="button" id="button2" onClick={(e)=> this.handleClick(e)}>No</button>
 
       </div>

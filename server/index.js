@@ -18,8 +18,7 @@ app.use(bodyParser.json());
 
 //Get restaurnts from yelp API
 app.get('/api/restaurants', (req, res) => {
-  console.log(req.query);
-  fetch(`https://api.yelp.com/v3/businesses/search?categories=restaurants&term=${req.query.term}&location=${req.query.location}`, {
+  fetch(`https://api.yelp.com/v3/businesses/search?categories=restaurants&location=${req.query.location}`, {
     method: 'GET',
     headers:({
       'Authorization': 'Bearer KtlW_oSlueZ8eVkcl39DhwzQPmjKyIGvpJxTCjo9efXzEhLzBuwaTxCZ1gWjV8u5PTo0focL8Y-EzPcVIBfkhxNlUlPT8YFpJAgbRGTfpD89Die9frHRiApgsctjWXYx'
@@ -30,10 +29,25 @@ app.get('/api/restaurants', (req, res) => {
     }
     return res.json();
   }).then(yelpRes => {
-    let restaurantList = yelpRes.businesses;
-    //map through id in list X
-    let rand = Math.floor(Math.random() * restaurantList.length);
-    return res.json([restaurantList[rand]]);
+    //create a user to access nevers array
+    User
+      .findOne()
+      .then(yelpUser => {
+        let restaurantList = yelpRes.businesses;
+        let id = restaurantList.id;
+        let neverList = yelpUser.nevers;
+        //check to see if restarant id is in users never list
+        function checkNeversList (id){
+          if(!(neverList.includes(id))){
+            return id;
+          }
+        }
+        //filter out the restarunts that are in nevers list
+        let approved = restaurantList.filter(checkNeversList);
+        //randomly get 1 restaurant
+        let rand = Math.floor(Math.random() * approved.length);
+        return res.json([approved[rand]]);
+      });
   });
 });
 

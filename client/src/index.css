@@ -46,3 +46,7 @@ text-align: center;
 	border-left: 100px solid red;
 	border-bottom: 50px solid transparent;
 }
+
+ul{
+  list-style:none;
+}

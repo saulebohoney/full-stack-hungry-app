@@ -11,11 +11,16 @@ export class NeverList extends React.Component {
         console.log('The link was clicked.');
       }
 
+      handleYes(e){
+        e.preventDefault();
+       
+      }
+
 render() {
 
   return (
       <div className="buttons">
-           <button type="button" id="button1">Yes</button>
+           <button type="button" id="button1" on Click= {(e)=>this.handleYes(e)}>Yes, take me there! </button>
            <button type="button" id="button2" onClick={(e)=> this.handleClick(e)}>No</button>
 
       </div>

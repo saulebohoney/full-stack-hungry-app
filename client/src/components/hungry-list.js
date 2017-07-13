@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchRestaurant} from '../actions/hungry';
+import {fetchRestaurant, setLocation} from '../actions/hungry';
 import NeverList from './never-list';
 
 export class HungryList extends React.Component {
@@ -9,6 +9,7 @@ export class HungryList extends React.Component {
     event.preventDefault();
     const value = this.input.value;
     console.log(value);
+    this.props.dispatch(setLocation(value));
     this.props.dispatch(fetchRestaurant(value));
     this.value="";
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateUserNevers} from '../actions/hungry';
+import {updateUserNevers, fetchRestaurant} from '../actions/hungry';
 
 export class NeverList extends React.Component {
 
@@ -8,6 +8,7 @@ export class NeverList extends React.Component {
         e.preventDefault();
         let id=  this.props.restaruantProps[0].id;
         this.props.dispatch(updateUserNevers(id));
+        this.props.dispatch(fetchRestaurant(this.props.city));
         console.log('The link was clicked.');
       }
 
@@ -30,7 +31,8 @@ render() {
 
 }
 export const mapStateToProps = (state) => ({
-  nevers:state.nevers
+  nevers:state.nevers,
+  city: state.city
 });
 
 

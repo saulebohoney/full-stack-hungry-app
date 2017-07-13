@@ -1,4 +1,10 @@
 // Action here
+export const SET_LOCATION = 'SET_LOCATION';
+export const setLocation = location => ({
+  type: SET_LOCATION ,
+  location
+});
+
 export const UPDATE_USER='UPDATE_USER';
 export const updateUser=never=>({
     type:UPDATE_USER,

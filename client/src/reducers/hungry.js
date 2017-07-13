@@ -5,6 +5,7 @@ export const initialState = {
     nevers:[],
     loading: false,
     error: null,
+    city: null
 };
 
 export const reducer = (state=initialState, action) => {
@@ -25,7 +26,7 @@ export const reducer = (state=initialState, action) => {
     case actions.FETCH_RESTAURANT_REQUEST:
         return Object.assign({}, state, {
             loading:true});
-  
+
     case actions.FETCH_RESTAURANT_SUCCESS:
         return Object.assign({}, state, {
             restaurants: action.restaurant});
@@ -33,6 +34,12 @@ export const reducer = (state=initialState, action) => {
     case actions.FETCH_RESTAURANT_ERROR:
         return Object.assign({}, state, {
             error:'Error!'});
+
+    case actions.SET_LOCATION:
+        return Object.assign({}, state, {
+          city: action.location
+        });
+
     default:
         return state;
     }

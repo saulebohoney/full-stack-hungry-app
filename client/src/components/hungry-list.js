@@ -48,6 +48,7 @@ export class HungryList extends React.Component {
       {restaurants}
     </ul>
     <NeverList restaruantProps = {this.props.restaurants}/>
+    
     </div>
     )
 

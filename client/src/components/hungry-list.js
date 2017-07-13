@@ -42,7 +42,9 @@ export class HungryList extends React.Component {
 
   return (
     <div className="root">
-      <h2 className="headertxt">Im Hungry</h2>
+      <h1 className="headertxt">Im Hungry</h1>
+      <h2>
+      </h2>
       <form onSubmit={(e)=>this.submitQuery(e)}>
       <input type="text" name="city" className="City" placeholder="city or zipcode" ref={input => this.input = input}/>
 

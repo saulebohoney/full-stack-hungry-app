@@ -19,12 +19,18 @@ export const updateUserError=resId =>({
 });
 
 
-export const updateUserNevers=() =>dispatch => {
+export const updateUserNevers= (id) =>dispatch => {
     dispatch(updateUser());
-    fetch('/api/users/5964f0a7188cee107ddddeea'
-   ).then(res=>{
+    fetch('/api/users/5966a5b3d1ed5529b4a8cea9/nevers', {
+      method: 'post',
+      body: JSON.stringify({nevers: id}),
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+      }
+    })
+   .then(res=>{
         if (!res.ok) {
-           // return Promise.reject(res.statusText);
            return res.json().then(Promise.reject);
         }
         return res.json();
@@ -69,5 +75,5 @@ export const fetchRestaurant = (city) => dispatch => {
     }).catch(err => {
         dispatch(fetchRestaurantError(err));
     });
-  
+
 };

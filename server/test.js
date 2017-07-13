@@ -12,6 +12,7 @@ const {app} = require('../server');
 
 
 
+//testing
 const {DATABASE_URL} = require('../config');
 const {Show} = require('../models');
 const {closeServer, runServer} = require('../server');

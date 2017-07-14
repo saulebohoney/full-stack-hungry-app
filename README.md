@@ -4,7 +4,7 @@ Have you ever been hungry but don't know what to eat? If that's you then you've 
 
 ## Technology Used
 **FrontEnd**: React, Redux, CSS, JSX, Javasript<br/>
-**BackEnd**: NodeJs, Express, MongoDB, Mongoose, Mlab <br/>
+**BackEnd**: NodeJs, Express, MongoDB, Mongoose, Mlab, yelpAPI <br/>
 **Deployment**: Heroku, Travis  <br/>
 
 ## Documentation of API <br/>

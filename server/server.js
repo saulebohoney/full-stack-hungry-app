@@ -103,7 +103,7 @@ app.post('/api/users/:id/nevers', (req, res) => {
     .findByIdAndUpdate(req.params.id, {$push: {['nevers']:req.body.nevers}})
     .exec()
     .then(user => {
-      res.status(204).end();
+      res.status(201).end();
     })
     .catch(err => {
       console.error(err);

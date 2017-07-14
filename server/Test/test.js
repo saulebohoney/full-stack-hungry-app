@@ -5,10 +5,9 @@ const mongoose = require('mongoose');
 const should = chai.should();
 const faker = require('faker');
 
-//const {DATABASE_URL} = require('../config');
+const {TEST_DATABASE_URL} = require('../config');
 const {User} = require('../models');
 const {closeServer, runServer, app} = require('../server');
-const {TEST_DATABASE_URL} = require('../config');
 chai.use(chaiHttp);
 
 function tearDownDb() {
@@ -77,7 +76,34 @@ describe('User API resource', function(){
     });
   });
 
+  it('should add a never to nevers list', function(){
+    const updateNever = {
+                    nevers: ['something']
+                   };
+
+    return chai
+    .request(app)
+    .get('/api/restaurants')
+    .then(_res => {
+        _res.should.be.status(200);
+        _res.body.length.should.be.at.least(1);
+        return User
+          .findOne()
+          .then(resUser => {
+            return chai
+              .request(app)
+              .post(`/api/users/${resUser._id}/nevers`)
+              .send({nevers: [_res.body[0].id]});
+          }).then(resRest => {
+            resRest.should.have.status(201);
+            resRest.should.be.a('object');
+
+          })
+      })
+  });
+
   // it('should filter out restaurants in nevers list', function(){
+  //   let arr = []
   //   let res;
   //   return chai
   //     .request(app)

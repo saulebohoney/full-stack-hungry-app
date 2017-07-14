@@ -27,7 +27,7 @@ export const updateUserError=resId =>({
 
 export const updateUserNevers= (id) =>dispatch => {
     dispatch(updateUser());
-    fetch('/api/users/5966a5b3d1ed5529b4a8cea9/nevers', {
+    fetch('/api/users/596904448f832140bbd165e5/nevers', {
       method: 'post',
       body: JSON.stringify({nevers: id}),
       headers: {

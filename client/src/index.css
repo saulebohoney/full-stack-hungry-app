@@ -5,7 +5,7 @@ body {
   background-color: gold;
     border: 2px solid;
     border-radius: 15px 550px;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .root {
 text-align: center;
@@ -50,3 +50,32 @@ text-align: center;
 ul{
   list-style:none;
 }
+
+.info-text {
+   text-align:center; 
+}
+
+ @media (max-width:1024px) {
+#button1{
+  display:fixed;
+  border: 1px solid grey;
+}
+#button2{
+display:inline-flex;
+border: 1px solid grey;
+}
+.info-text{
+text-align: center;
+}
+.City{
+ border: 1px solid grey;
+}
+
+#search{
+ border: 1px solid grey;
+
+}
+body{
+  border-radius: 20px 90px;
+}
+} 

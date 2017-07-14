@@ -17,6 +17,10 @@ app.use(bodyParser.json());
 // API endpoints go here!
 
 //Get restaurnts from yelp API
+app.get('/api', (req, res) => {
+  res.json({message: 'Root'});
+});
+
 app.get('/api/restaurants', (req, res) => {
   fetch(`https://api.yelp.com/v3/businesses/search?categories=restaurants&location=${req.query.location}`, {
     method: 'GET',

@@ -1,5 +1,5 @@
 # I'm Hungry
-Have you ever been hungry but don't know what to eat? If that's you then you've come to the right app. By entering you zip code or city our app will randomly generate a restaurant for you. If you like it then press the yes, take me there button and it will take you to google maps. If you hit the No, I don't like this button it will generate a new restaurant for you.
+Have you ever been hungry but don't know what to eat? If that's you then you've come to the right app. By entering you zip code or city our app will randomly generate a restaurant for you. If you like it then press the yes, take me there button and it will take you to google maps. If you hit the No, I don't like this button it will generate a new restaurant for you. The app is responsive so you can use it on your mobile devices. 
 
 
 ## Technology Used
@@ -32,3 +32,5 @@ Allows you to add a restaurant to a list of restaurants you don't want to see <b
 
 #### After Search <br/>
 ![After Entering Location](images/AfterSearch.png "After Search")<br/>
+
+### Mobile Views <br/>

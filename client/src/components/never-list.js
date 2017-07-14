@@ -11,14 +11,15 @@ export class NeverList extends React.Component {
         e.preventDefault();
         let id=  this.props.restaruantProps[0].id;
         this.props.dispatch(updateUserNevers(id));
+        this.props.dispatch(fetchRestaurant(this.props.city));
       }
- 
-   
+
+
         handleYes(e){
         e.preventDefault();
         window.location.assign(`https://www.google.com/maps/search/${this.props.restaurant[0].location.display_address[0]+this.props.restaurant[0].location.display_address[1]}`);
         }
-    
+
 render() {
 
   return (
@@ -34,7 +35,8 @@ render() {
 }
 export const mapStateToProps = (state) => ({
   nevers:state.nevers,
-  restaurant:state.restaurants
+  restaurant:state.restaurants,
+  city: state.city
 });
 
 

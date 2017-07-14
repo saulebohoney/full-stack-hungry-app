@@ -23,13 +23,9 @@ export class HungryList extends React.Component {
     }
     let buttons;
     if (this.props.restaurants.length > 0) {
-    buttons=<NeverList restaruantProps={this.props.restaurants}/>;
-      // return buttons;
+    buttons=<NeverList restaruantProps = {this.props.restaurants}/>;
     }
-    //  let buttons=<NeverList restaruantProps = {this.props.restaurants}/>;
-
-
-
+   
     const restaurants = this.props.restaurants.map((restaurant, index) => {
       return (
          <li key={restaurant.id}>

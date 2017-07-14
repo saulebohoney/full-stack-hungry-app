@@ -3,20 +3,22 @@ import {connect} from 'react-redux';
 import {updateUserNevers, fetchRestaurant} from '../actions/hungry';
 
 export class NeverList extends React.Component {
+  componentDidMount(){
+    console.log(this.props.restaurant);
+  }
 
       handleClick(e){
         e.preventDefault();
         let id=  this.props.restaruantProps[0].id;
         this.props.dispatch(updateUserNevers(id));
-        this.props.dispatch(fetchRestaurant(this.props.city));
-        console.log('The link was clicked.');
       }
-
-      handleYes(e){
+ 
+   
+        handleYes(e){
         e.preventDefault();
-
-      }
-
+        window.location.assign(`https://www.google.com/maps/search/${this.props.restaurant[0].location.display_address[0]+this.props.restaurant[0].location.display_address[1]}`);
+        }
+    
 render() {
 
   return (
@@ -32,7 +34,7 @@ render() {
 }
 export const mapStateToProps = (state) => ({
   nevers:state.nevers,
-  city: state.city
+  restaurant:state.restaurants
 });
 
 

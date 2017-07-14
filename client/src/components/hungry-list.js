@@ -40,9 +40,11 @@ export class HungryList extends React.Component {
     <div className="root">
       <h1 className="headertxt">I'm Hungry</h1>
       <h3 className= "info-text">
-      Hungry but you don't know what you want to eat? Have no fear the I'm hungry is here.
-      Just enter your city or zipcode and we will find a restaruant for you. If a restaurnt shows up that you don't like
-      simply hit the never button and it will never show up again. If you like it hit the yes button and you will be given directions.
+      Hungry but you don't know what you want to eat? Have no fear the I'm hungry is here.<br/>
+      Just enter your city or zipcode and we will find a restaruant for you. <br/>
+      If a restaurnt shows up that you don't like
+      simply hit the "No, I don't like this!" button and it will never show up again.<br/>
+      If you like it hit the "Yes, take me there!" button and you will be given directions.
       </h3>
       <form onSubmit={(e)=>this.submitQuery(e)}>
       <input type="text" name="city" className="City" placeholder="city or zipcode" ref={input => this.input = input}/>

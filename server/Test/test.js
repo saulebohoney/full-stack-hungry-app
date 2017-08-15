@@ -13,9 +13,7 @@ chai.use(chaiHttp);
 function tearDownDb() {
   return new Promise((resolve, reject) => {
     console.warn('Deleting database');
-    mongoose.connection.dropDatabase()
-      .then(result => resolve(result))
-      .catch(err => reject(err));
+    mongoose.connection.dropDatabase().then(result => resolve(result)).catch(err => reject(err));
   });
 }
 
@@ -24,25 +22,23 @@ const USER = {
   nevers: [faker.lorem.words]
 };
 
-function seedUser(){
-  const newUser={
+function seedUser() {
+  const newUser = {
     name: USER.name,
     nevers: USER.nevers
   };
   return User.create(newUser);
 }
 
-describe('Testing root endpoint',function(){
-  it('should verify you hit root url', function(){
-    return chai.request(app)
-      .get('/api')
-      .then(res => {
-        res.should.be.status(200);
-      });
+describe('Testing root endpoint', function() {
+  it('should verify you hit root url', function() {
+    return chai.request(app).get('/api').then(res => {
+      res.should.be.status(200);
+    });
   });
 });
 
-describe('User API resource', function(){
+describe('User API resource', function() {
 
   before(function() {
     return runServer(TEST_DATABASE_URL);
@@ -65,41 +61,32 @@ describe('User API resource', function(){
   describe('Get endpoint for restaurants', function() {
     it('should return all restaurants searched for', function() {
       let res;
-      return chai
-        .request(app)
-        .get('/api/restaurants')
-        .then(_res => {
-          res = _res;
-          res.should.be.status(200);
-          res.body.length.should.be.at.least(1);
-        });
+      return chai.request(app).get('/api/restaurants').then(_res => {
+        res = _res;
+        res.should.be.status(200);
+        res.body.length.should.be.at.least(1);
+      });
     });
   });
 
-  it('should add a never to nevers list', function(){
+  it('should add a never to nevers list', function() {
     const updateNever = {
-                    nevers: ['something']
-                   };
+      nevers: ['something']
+    };
 
-    return chai
-    .request(app)
-    .get('/api/restaurants')
-    .then(_res => {
-        _res.should.be.status(200);
-        _res.body.length.should.be.at.least(1);
-        return User
-          .findOne()
-          .then(resUser => {
-            return chai
-              .request(app)
-              .post(`/api/users/${resUser._id}/nevers`)
-              .send({nevers: [_res.body[0].id]});
-          }).then(resRest => {
-            resRest.should.have.status(201);
-            resRest.should.be.a('object');
+    return chai.request(app).get('/api/restaurants').then(_res => {
+      _res.should.be.status(200);
+      _res.body.length.should.be.at.least(1);
+      return User.findOne().then(resUser => {
+        return chai.request(app).post(`/api/users/${resUser._id}/nevers`).send({
+          nevers: [_res.body[0].id]
+        });
+      }).then(resRest => {
+        resRest.should.have.status(201);
+        resRest.should.be.a('object');
 
-          })
       })
+    })
   });
 
   // it('should filter out restaurants in nevers list', function(){
@@ -116,6 +103,5 @@ describe('User API resource', function(){
   //       res.body.length.should.be.at.least(1);
   //     });
   // });
-
 
 });

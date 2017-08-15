@@ -1,14 +1,11 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import ReactDOM from 'react-dom';
-import HungryList from './components/hungry-list';
-import neverList from './components/never-list';
+import HungryList from './components/HungryList';
 import './index.css';
 import store from './store';
 
 ReactDOM.render(
   <Provider store={store}>
-   <HungryList />
-  </Provider>,
-  document.getElementById('root')
-);
+  <HungryList/>
+</Provider>, document.getElementById('root'));
